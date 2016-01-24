@@ -4,5 +4,5 @@ ruby '2.3.0'
 
 group :test do
   gem 'rake'
-  gem 'minitest'
+  gem 'test-unit'
 end
