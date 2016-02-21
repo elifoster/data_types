@@ -1,5 +1,5 @@
 # data_types
-[![Build Status](https://travis-ci.org/elifoster/data_types.svg?branch=master)](https://travis-ci.org/elifoster/data_types)
+[![Build Status](https://travis-ci.org/elifoster/data_types.svg?branch=master)](https://travis-ci.org/elifoster/data_types)[![Gem Version](https://badge.fury.io/rb/data_types.svg)](https://badge.fury.io/rb/data_types)
 
 A Ruby gem that adds new object types like pairs and triplets.
 
