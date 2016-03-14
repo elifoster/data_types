@@ -1,13 +1,13 @@
-# Triplet class represents a set of 3 pieces of data.
+# Triplet class represents a set of 3 pieces of data. The attributes are readers for custom = behavior.
 class Triplet
   # @return [Object] The first data piece.
-  attr_accessor :left
+  attr_reader :left
 
   # @return [Object] The second data piece.
-  attr_accessor :middle
+  attr_reader :middle
 
   # @return [Object] The third data piece.
-  attr_accessor :right
+  attr_reader :right
 
   # Creates a new Triplet.
   # @param left [Object] The first data.
@@ -18,6 +18,7 @@ class Triplet
     @left = left
     @middle = middle
     @right = right
+    @frozen = false
   end
 
   # @return [String] The stringified version of the Triplet.
@@ -76,5 +77,74 @@ class Triplet
     @right = left
     @left = right
     self
+  end
+
+  # Returns true if self and other have the same left and right values.
+  # @param other [Triplet] The other Triplet
+  # @return [Boolean] Whether they are equivalent.
+  def eql?(other)
+    @left == other.left &&@middle == other.middle && @right == other.right
+  end
+
+  alias == eql?
+
+  # Returns whether self is frozen.
+  # @return [Boolean] Whether self is frozen.
+  def frozen?
+    @frozen
+  end
+
+  # Deep-freezes the Triplet, freezing left, middle, and right, as well as the object itself.
+  # @return [Triplet] self.
+  def freeze
+    unless frozen?
+      @left.freeze
+      @middle.freeze
+      @right.freeze
+      @frozen = true
+    end
+    self
+  end
+
+  # Sets right to the value.
+  # @raise RuntimeError when self is frozen.
+  # @param new [Any] The new right value.
+  # @return [void]
+  def right=(new)
+    if frozen?
+      raise RuntimeError.new("can't modify frozen Triplet")
+    else
+      @right = new
+    end
+  end
+
+  # Sets middle to the value.
+  # @raise RuntimeError when self is frozen.
+  # @param new [Any] The new middle value.
+  # @return [void]
+  def middle=(new)
+    if frozen?
+      raise RuntimeError.new("can't modify frozen Triplet")
+    else
+      @middle = new
+    end
+  end
+
+  # Sets left to the value.
+  # @raise RuntimeError when self is frozen.
+  # @param new [Any] The new left value.
+  # @return [void]
+  def left=(new)
+    if frozen?
+      raise RuntimeError.new("can't modify frozen Triplet")
+    else
+      @left = new
+    end
+  end
+
+  # Returns a new copied version of the Triplet, with copied values.
+  # @return [Triplet] The new Triplet
+  def clone
+    Triplet.new(@left.dup, @middle.dup, @right.dup)
   end
 end

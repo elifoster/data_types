@@ -1,10 +1,10 @@
-# The Pair class represents a pair of two pieces of data.
+# The Pair class represents a pair of two pieces of data. The attributes are readers for custom = behavior.
 class Pair
   # @return [Object] The left data.
-  attr_accessor :left
+  attr_reader :left
 
   # @return [Object] The right data.
-  attr_accessor :right
+  attr_reader :right
 
   # Creates a new pair.
   # @param left [Object] The left piece of data.
@@ -14,6 +14,7 @@ class Pair
   def initialize(left, right)
     @left = left
     @right = right
+    @frozen = false
   end
 
   # Gets a string representation of the pair.
@@ -71,5 +72,61 @@ class Pair
     @left = right
     @right = left
     self
+  end
+
+  # Returns true if self and other have the same left and right values.
+  # @param other [Pair] The other Pair
+  # @return [Boolean] Whether they are equivalent.
+  def eql?(other)
+    @left == other.left && @right == other.right
+  end
+
+  alias == eql?
+
+  # Returns whether self is frozen.
+  # @return [Boolean] Whether self is frozen.
+  def frozen?
+    @frozen
+  end
+
+  # Deep-freezes the Pair, freezing left and right, as well as the object itself.
+  # @return [Pair] self.
+  def freeze
+    unless frozen?
+      @left.freeze
+      @right.freeze
+      @frozen = true
+    end
+    self
+  end
+
+  # Sets right to the value.
+  # @raise RuntimeError when self is frozen.
+  # @param new [Any] The new right value.
+  # @return [void]
+  def right=(new)
+    if frozen?
+      raise RuntimeError.new("can't modify frozen Pair")
+    else
+      @right = new
+    end
+  end
+
+  # Sets left to the value.
+  # @raise RuntimeError when self is frozen.
+  # @param new [Any] The new left value.
+  # @return [void]
+  def left=(new)
+    if frozen?
+      raise RuntimeError.new("can't modify frozen Pair")
+    else
+      @left = new
+    end
+  end
+
+  # Returns a new copied version of the Pair, with copied values.
+  # @return [Pair] The new Pair
+  def clone
+    Pair.new(@left.dup, @right.dup)
   end
 end
