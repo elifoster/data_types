@@ -1,5 +1,8 @@
 # Changelog
 ## Version 1
+### 1.1.1
+* Now licensed with the MIT license.
+
 ### 1.1.0
 * Remove specs from gem build.
 * Changes to Triplet and Pair alike:
