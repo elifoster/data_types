@@ -70,13 +70,11 @@ class Triplet
   end
 
   # Flips the triplet in place.
-  # @return [Triplet] The Triplet with the left and right values flipped.
   def flip!
     left = @left
     right = @right
     @right = left
     @left = right
-    self
   end
 
   # Returns true if self and other have the same left and right values.

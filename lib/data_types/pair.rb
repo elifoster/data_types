@@ -65,13 +65,11 @@ class Pair
   end
 
   # Flips the pair in place.
-  # @return [Pair] Returns self.
   def flip!
     right = @right
     left = @left
     @left = right
     @right = left
-    self
   end
 
   # Returns true if self and other have the same left and right values.

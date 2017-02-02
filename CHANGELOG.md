@@ -1,5 +1,9 @@
 # Changelog
 ## Version 1
+### 1.1.2
+* `Pair#flip!` and `Triplet#flip!` no longer return `self`. If you want to explicitly assign the return values to a 
+new variable, you should use the non-bang version (`flip`).
+
 ### 1.1.1
 * Now licensed with the MIT license.
 
