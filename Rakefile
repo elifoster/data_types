@@ -1,4 +1,3 @@
-task :default do
-  require_relative 'spec/pair_test_cases'
-  require_relative 'spec/triplet_test_cases'
-end
+require 'rspec/core/rake_task'
+RSpec::Core::RakeTask.new(:spec)
+task default: :spec
