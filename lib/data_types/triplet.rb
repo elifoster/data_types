@@ -77,11 +77,11 @@ class Triplet
     @left = right
   end
 
-  # Returns true if self and other have the same left and right values.
+  # Returns true if self and other have the same left, middle, and right values.
   # @param other [Triplet] The other Triplet
   # @return [Boolean] Whether they are equivalent.
   def eql?(other)
-    @left == other.left &&@middle == other.middle && @right == other.right
+    @left == other.left && @middle == other.middle && @right == other.right
   end
 
   alias == eql?
