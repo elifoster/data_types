@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '~> 2.6'
+ruby '~> 3.0'
 
 group :test do
   gem('rake', '~> 13.0')
-  gem('rspec', '~> 3.9')
+  gem('rspec', '~> 3.10')
 end
