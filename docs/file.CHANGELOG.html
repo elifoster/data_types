@@ -6,7 +6,7 @@
 <title>
   File: CHANGELOG
   
-    &mdash; Documentation by YARD 0.9.25
+    &mdash; Documentation by YARD 0.9.26
   
 </title>
 
@@ -57,51 +57,52 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h1 id="changelog">Changelog</h1>
+      <div id="content"><div id='filecontents'>
+<h1 id="label-Changelog">Changelog</h1>
 
-<h2 id="version-1">Version 1</h2>
+<h2 id="label-Version+1">Version 1</h2>
 
-<h3 id="1-1-2">1.1.2</h3>
+<h3 id="label-1.1.2">1.1.2</h3>
+<ul><li>
+<p><code>Pair#flip!</code> and <code>Triplet#flip!</code> no longer return <code>self</code>. If you want to explicitly assign the return values to a new variable, you should use the non-bang version (<code>flip</code>).</p>
+</li></ul>
 
-<ul>
-<li><code>Pair#flip!</code> and <code>Triplet#flip!</code> no longer return <code>self</code>. If you want to explicitly assign the return values to a 
-new variable, you should use the non-bang version (<code>flip</code>).</li>
-</ul>
+<h3 id="label-1.1.1">1.1.1</h3>
+<ul><li>
+<p>Now licensed with the MIT license.</p>
+</li></ul>
 
-<h3 id="1-1-1">1.1.1</h3>
+<h3 id="label-1.1.0">1.1.0</h3>
+<ul><li>
+<p>Remove specs from gem build.</p>
+</li><li>
+<p>Changes to Triplet and Pair alike:</p>
+</li><li>
+<p>Contents (left, right, middle) are all now reader attributes. However, they can still be assigned and modified using the same = syntax.</p>
+</li><li>
+<p>New @frozen instance variable in Triplet and Pair.</p>
+</li><li>
+<p>New custom <code>#eql?</code>/<code>#==</code> methods for proper equivalency checks.</p>
+</li><li>
+<p>New <code>#frozen?</code> method to check if the object is frozen.</p>
+</li><li>
+<p>New <code>#freeze</code> to freeze the object, as well as its left, right, and middle values.</p>
+</li><li>
+<p>New <code>#left=</code>, <code>#right=</code>, and <code>#middle=</code> methods that raise a RuntimeError if the object is frozen.</p>
+</li><li>
+<p>New <code>#clone</code> method for proper mutability/pointers.</p>
+</li></ul>
 
-<ul>
-<li>Now licensed with the MIT license.</li>
-</ul>
-
-<h3 id="1-1-0">1.1.0</h3>
-
-<ul>
-<li>Remove specs from gem build.</li>
-<li>Changes to Triplet and Pair alike:
-
-<ul>
-<li>Contents (left, right, middle) are all now reader attributes. However, they can still be assigned and modified using the same = syntax.</li>
-<li>New @frozen instance variable in Triplet and Pair.</li>
-<li>New custom <code>#eql?</code>/<code>#==</code> methods for proper equivalency checks.</li>
-<li>New <code>#frozen?</code> method to check if the object is frozen.</li>
-<li>New <code>#freeze</code> to freeze the object, as well as its left, right, and middle values.</li>
-<li>New <code>#left=</code>, <code>#right=</code>, and <code>#middle=</code> methods that raise a RuntimeError if the object is frozen.</li>
-<li>New <code>#clone</code> method for proper mutability/pointers.</li>
-</ul></li>
-</ul>
-
-<h3 id="1-0-0">1.0.0</h3>
-
-<ul>
-<li>Initial release.</li>
-</ul>
+<h3 id="label-1.0.0">1.0.0</h3>
+<ul><li>
+<p>Initial release.</p>
+</li></ul>
 </div></div>
 
       <div id="footer">
-  Generated on Wed May  6 16:15:20 2020 by
+  Generated on Mon Jan 18 09:55:50 2021 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.25 (ruby-2.6.5).
+  0.9.26 (ruby-3.0.0).
 </div>
 
     </div>
